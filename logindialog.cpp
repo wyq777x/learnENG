@@ -65,8 +65,5 @@ void logindialog::on_btnregister_clicked()
     out<<userinfo.password<<"\n";
     file.close();
     QMessageBox::information(this,tr("Success"),tr("用户数据已储存,请登录"));
-
-
-
 }
 
