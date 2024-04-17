@@ -11,17 +11,23 @@ INCLUDEPATH += $$PWD/FluentUI/src
 SOURCES += \
     logindialog.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    recitewords.cpp
 
 HEADERS += \
     logindialog.h \
-    mainwindow.h
+    mainwindow.h \
+    recitewords.h
 
 FORMS += \
     logindialog.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    recitewords.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    main.qrc

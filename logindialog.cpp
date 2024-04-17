@@ -3,13 +3,18 @@
 #include <QFile>
 #include <QTextStream>
 #include <QMessageBox>
+#include <QIcon>
 
 logindialog::logindialog(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::logindialog)
 {
     ui->setupUi(this);
-    this->setWindowTitle("Login&Register");
+    this->setWindowTitle("用户注册登录(Login&Register)");
+    QString iconpath=":/image/learneng.ico";
+    QIcon icon(iconpath);
+    this->setWindowIcon(icon);
+
     ui->userline->setPlaceholderText("请输入用户名");
    ui->passwordline->setPlaceholderText("请输入密码");
 
@@ -31,7 +36,7 @@ void logindialog::on_btnlogin_clicked()
         return;
     }
 
-    QTextStream in(&file);
+    QTextStream in(&file);//从txt里抽出给流
     QString storedUsername = in.readLine().trimmed();
     QString storedPassword = in.readLine();
     QString inputUsername = ui->userline->text().trimmed();
@@ -60,7 +65,7 @@ void logindialog::on_btnregister_clicked()
         QMessageBox::critical(this,tr("Error"),tr("无法打开并写入文件") );
         return;
     }
-    QTextStream out(&file);
+    QTextStream out(&file);//从文本框抽出到txt
     out<<userinfo.username<<"\n";
     out<<userinfo.password<<"\n";
     file.close();

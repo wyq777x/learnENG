@@ -4,8 +4,9 @@
 #include <QDialog>
 
 
-struct Userinfo
+class Userinfo
 {
+public:
     QString username;
     QString password;
 };
