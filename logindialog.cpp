@@ -52,23 +52,57 @@ void logindialog::on_btnlogin_clicked()
 
 }
 
-
 void logindialog::on_btnregister_clicked()
 {
     Userinfo userinfo;
-    userinfo.username=ui->userline->text().trimmed();
-    userinfo.password=ui->passwordline->text();
+    userinfo.username = ui->userline->text().trimmed();
+    userinfo.password = ui->passwordline->text();
 
     QFile file("user_info.txt");
-    if(!file.open(QIODevice::WriteOnly|QIODevice::Text))
-    {
-        QMessageBox::critical(this,tr("Error"),tr("无法打开并写入文件") );
+    // 首先检查文件是否存在，如果不存在则可以直接注册
+    if(!file.exists()) {
+        // 文件不存在，可以注册新用户
+        if(!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            QMessageBox::critical(this, tr("Error"), tr("无法打开并写入文件"));
+            return;
+        }
+        QTextStream out(&file);
+        out << userinfo.username << "\n";
+        out << userinfo.password << "\n";
+        file.close();
+        QMessageBox::information(this, tr("Success"), tr("用户数据已储存,请登录"));
         return;
     }
-    QTextStream out(&file);//从文本框抽出到txt
-    out<<userinfo.username<<"\n";
-    out<<userinfo.password<<"\n";
+
+    // 如果文件存在，检查用户名是否已存在
+    if(!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QMessageBox::critical(this, tr("Error"), tr("无法打开文件读取"));
+        return;
+    }
+    QTextStream in(&file);
+    QString line;
+    while(!in.atEnd()) {
+        line = in.readLine().trimmed();
+        if(line == userinfo.username) {
+            QMessageBox::critical(this, tr("Error"), tr("用户名已存在，请选择其他用户名"));
+            file.close();
+            return;
+        }
+        // 跳过密码行
+        if(!in.atEnd()) in.readLine();
+    }
     file.close();
-    QMessageBox::information(this,tr("Success"),tr("用户数据已储存,请登录"));
+
+    // 用户名不存在，可以注册新用户
+    if(!file.open(QIODevice::Append | QIODevice::Text)) {
+        QMessageBox::critical(this, tr("Error"), tr("无法打开并写入文件"));
+        return;
+    }
+    QTextStream out(&file);
+    out << userinfo.username << "\n";
+    out << userinfo.password << "\n";
+    file.close();
+    QMessageBox::information(this, tr("Success"), tr("用户数据已储存,请登录"));
 }
+
 
