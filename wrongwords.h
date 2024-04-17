@@ -16,9 +16,6 @@ public:
     ~wrongwords();
 
 private slots:
-    void on_btnrecite_clicked();
-
-    void on_btnrecite2_clicked();
 
 private:
     Ui::wrongwords *ui;
