@@ -12,17 +12,23 @@ SOURCES += \
     logindialog.cpp \
     main.cpp \
     mainwindow.cpp \
-    recitewords.cpp
+    recitewords.cpp \
+    wordslib.cpp \
+    wrongwords.cpp
 
 HEADERS += \
     logindialog.h \
     mainwindow.h \
-    recitewords.h
+    recitewords.h \
+    wordslib.h \
+    wrongwords.h
 
 FORMS += \
     logindialog.ui \
     mainwindow.ui \
-    recitewords.ui
+    recitewords.ui \
+    wordslib.ui \
+    wrongwords.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -23,7 +23,7 @@ public:
     {
         if (recitewords->objectName().isEmpty())
             recitewords->setObjectName("recitewords");
-        recitewords->resize(400, 300);
+        recitewords->resize(514, 383);
 
         retranslateUi(recitewords);
 

@@ -6,6 +6,10 @@ recitewords::recitewords(QWidget *parent)
     , ui(new Ui::recitewords)
 {
     ui->setupUi(this);
+    this->setWindowTitle("背单词");
+    QString iconpath=":/image/learneng.ico";
+    QIcon icon(iconpath);
+    this->setWindowIcon(icon);
 }
 
 recitewords::~recitewords()
