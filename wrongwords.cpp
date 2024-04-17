@@ -16,3 +16,7 @@ wrongwords::~wrongwords()
 {
     delete ui;
 }
+
+
+
+

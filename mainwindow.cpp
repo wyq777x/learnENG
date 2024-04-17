@@ -35,8 +35,20 @@ void MainWindow::on_btnsign_clicked()
 
 void MainWindow::on_btnexit_clicked()
 {//退出程序
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, tr("退出前的确认"), tr("你想要打卡吗?"),
+                                  QMessageBox::Yes|QMessageBox::No);
 
-    exit(0);
+    // 根据用户的选择进行处理
+    if (reply == QMessageBox::Yes) {
+        // 用户选择了"Yes"，点击 btnsign 按钮
+        QPushButton *btnsign = this->findChild<QPushButton *>("btnsign");
+        if (btnsign) {
+            btnsign->click(); // 模拟点击 btnsign 按钮
+        }
+    }
+
+    QApplication::quit();
 }
 
 
