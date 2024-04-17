@@ -13,6 +13,55 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <widget class="QListView" name="wrongwordsview">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>11</y>
+     <width>461</width>
+     <height>271</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnrecite">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>290</y>
+     <width>80</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>背单词</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btndelsingle">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>290</y>
+     <width>80</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>删除单个单词</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnclear">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>290</y>
+     <width>80</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>清空</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

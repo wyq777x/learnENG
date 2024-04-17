@@ -4,6 +4,7 @@
 
 
 int n=0;
+int mark=0;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -41,14 +42,18 @@ void MainWindow::on_btnexit_clicked()
 
 void MainWindow::on_btnlastmark_clicked()
 {
-    //提示上次背单词的成绩
 
+    //提示上次背单词的成绩
+    std::string a=std::to_string(mark);
+    std::string b="你的成绩是: "+a;
+    QString c =QString::fromStdString(b);
+    QMessageBox::information(this,tr("成绩"),c);
 }
 
 
 void MainWindow::on_btnwrongword_clicked()
 {
-    //进入错题本
+    //进入错词本
     wrongwords.show();
     wrongwords.raise();
 
