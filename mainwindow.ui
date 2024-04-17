@@ -134,9 +134,12 @@ color: rgb(255, 255, 255);</string>
      <rect>
       <x>10</x>
       <y>130</y>
-      <width>271</width>
+      <width>381</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
     </property>
     <property name="html">
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -152,11 +155,14 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <widget class="QTextEdit" name="title">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>160</x>
       <y>10</y>
       <width>291</width>
       <height>64</height>
      </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
     </property>
     <property name="html">
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -174,9 +180,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <rect>
       <x>10</x>
       <y>130</y>
-      <width>271</width>
+      <width>381</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
     </property>
    </widget>
   </widget>

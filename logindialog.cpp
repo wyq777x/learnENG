@@ -28,8 +28,8 @@ logindialog::~logindialog()
 void logindialog::on_btnlogin_clicked()
 {
 
-    Userinfo userinfo;
-    QFile file ("user_info.txt");
+    Userinfo userinfo;  //用户数据
+    QFile file ("user_info.txt");//用户数据存放地址
     if(!file.open(QIODevice::ReadOnly|QIODevice::Text))
     {
         QMessageBox::critical(this,tr("Error"),tr("找不到文件读取"));
